@@ -1,0 +1,46 @@
+name: test-env
+channels:
+  - pytorch
+  - conda-forge
+  - mosek
+  - gurobi
+  - defaults
+dependencies:
+  - cudatoolkit=11.*
+  - cython
+  - dask
+  - datalad
+  - dill
+  - docopt
+  - easygui
+  - ffmpeg
+  - filelock
+  - glob2
+  - gpy
+  - greenlet
+  - gurobi
+  - html5lib
+  - importnb
+  - iniconfig
+  - ipdb
+  - ipympl
+  - jbig
+  - joblib
+  - jpeg
+  - jupyter
+  - jupyter_contrib_nbextensions
+  - jupyterlab
+  - jupytext
+  - libblas=*=*mkl*
+  - libpng
+  - librosa
+  - libxscrnsaver-cos6-x86_64
+  - line_profiler
+  - metakernel
+  - mne
+  - more-itertools
+  - mosek
+  - mpi4py
+  - nbdime 
+  - pytorch=*=*cuda11*
+  - tensorflow=2.*=cuda11*

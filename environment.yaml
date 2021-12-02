@@ -1,0 +1,7 @@
+name: mamba-conquest
+channels:
+  - conda-forge
+dependencies:
+  - mamba
+  - libmambapy
+  - pyyaml
