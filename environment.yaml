@@ -1,4 +1,4 @@
-name: mamba-conquest
+name: mamba-conquer
 channels:
   - conda-forge
 dependencies:

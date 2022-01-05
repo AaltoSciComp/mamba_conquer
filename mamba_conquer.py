@@ -2,7 +2,7 @@ import sys
 import shutil
 import random
 import argparse
-from collections import defaultdict
+import collections
 import libmambapy
 from mamba.utils import load_channels, init_api_context, get_installed_jsonfile
 
@@ -112,13 +112,14 @@ def split_problem(problem, npackages=5):
         problems = new_problems
     return problems
 
-
 def mamba_conquer(environment, important_packages=None, npackages=5):
 
     env = read_environment(environment)
 
-    dependencies = env['dependencies']
+    dependencies_unfiltered = env['dependencies']
     channels = env['channels']
+
+    dependencies = [ x for x in dependencies_unfiltered if not isinstance(x, collections.abc.Mapping) ]
 
     solver = MambaSolver(channels)
 
@@ -129,7 +130,7 @@ def mamba_conquer(environment, important_packages=None, npackages=5):
 
     problems = split_problem(MambaProblem(dependencies, important_packages=important_packages), npackages)
 
-    results = defaultdict(list)
+    results = collections.defaultdict(list)
     for problem in problems:
         success, build_problems = problem.solve(solver)
         results[success].append({
